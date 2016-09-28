@@ -1,7 +1,7 @@
 # CC FRAMEWORK FOR PHP
 
 ---
-1. php文件名说明 ：
+## php文件名说明 ：
 
     1）php 类名：首字母大写
 
@@ -12,7 +12,8 @@
     4）第三方库，自定义库：.class.php， 如：DB_PDO.class.php
 
 
-2. URL
+## URL
+
     1. 在服务器增加：.htaccess文件 隐藏index.php
         xxx.com/index/index  实际访问xxx.com/index.php/index/index
 
@@ -22,7 +23,7 @@
     注：后台：增加参数p=admin, 默认为前台
 
 
-3. 配置文件
+## 配置文件
     $CONF = include ROOT . 'config\config.php';   //加载配置文件
     直接通过获取：$CONF['XXX']
 
