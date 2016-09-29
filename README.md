@@ -27,6 +27,25 @@
     $CONF = include ROOT . 'config\config.php';   //加载配置文件
     直接通过获取：$CONF['XXX']
 
+## 目录结构
+---
+CC/	框架目录
+
+├── app
+
+├── assets
+
+├── config
+
+├── framework
+
+├── runtime
+
+├── index.php
+
+├── .htaccess
+
+---
 # Add File
 ---
 
@@ -52,3 +71,10 @@
 
 ## Config
 [add] config/config.php
+
+## base
+[add] framework/base/conf.php
+
+[add] framework/base/cookie.class.php
+
+[add] framework/base/function.php
