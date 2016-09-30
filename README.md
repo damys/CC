@@ -78,3 +78,13 @@ CC/	框架目录
 [add] framework/base/cookie.class.php
 
 [add] framework/base/function.php
+
+## runtime
+[add] runtime/logs
+
+## assets
+[add] assets/admin/css
+
+[add] assets/admin/img
+
+[add] assets/admin/js
