@@ -1,5 +1,5 @@
 <?php
-///////////////测试用////////////////////
+// 测试用
 function microtime_float(){
     list($usec, $sec) = explode(' ', microtime());   //microtime() 返回：毫秒 时间戳 0.63559400 1469065900
     return ((float)$usec + (float)$sec);
@@ -30,7 +30,7 @@ define('IMG_UPLOAD', SITE_URL . 'upload/');                 //文件上传路径
 
 include FRAMEWORK . 'init.php';
 
-///////////////测试用////////////////////
+// 测试用
 $d2 = microtime_float();
 msg("动行消耗时间：" . ($d2-$d1));
 
