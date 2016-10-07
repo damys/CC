@@ -7,8 +7,6 @@ function microtime_float(){
 $d1 = microtime_float();
 
 
-
-
 define('DS', DIRECTORY_SEPARATOR);                //目录分隔符,自动匹配。win:\, unix:/
 define('ROOT', __DIR__ . DS);                     //根目录
 define('FRAMEWORK', ROOT . 'framework' . DS);     //框架目录
