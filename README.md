@@ -67,6 +67,8 @@ CC/	框架目录
 
 [add] app/home/model/IndexModel.class.php
 
+[add] app/home/model/BaseModel.class.php
+
 [add] app/home/view/index/index.html
 
 ## Config
