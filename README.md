@@ -74,6 +74,8 @@ CC/	框架目录
 ## Config
 [add] config/config.php
 
+[update] config/config.php HOST,DNS
+
 ## base
 [add] framework/base/conf.php
 
