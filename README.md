@@ -83,6 +83,8 @@ CC/	框架目录
 
 [add] framework/base/function.php
 
+[add] framework/base/route.php
+
 ## runtime
 [add] runtime/logs
 
