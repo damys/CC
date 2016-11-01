@@ -46,7 +46,4 @@ CC/	框架目录
 ├── index.php
 
 ├── .htaccess
-<<<<<<< HEAD
 
-=======
->>>>>>> 825112eac97890efca1cdf51ad3a96f1e863d278
