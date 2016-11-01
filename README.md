@@ -13,6 +13,7 @@
 
 
 ## URL
+---
 
     1. 在服务器增加：.htaccess文件 隐藏index.php
         xxx.com/index/index  实际访问xxx.com/index.php/index/index
@@ -24,6 +25,7 @@
 
 
 ## 配置文件
+---
     $CONF = include ROOT . 'config\config.php';   //加载配置文件
     直接通过获取：$CONF['XXX']
 
