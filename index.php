@@ -1,4 +1,4 @@
-＜？php
+<?php
 function microtime_float(){
     list($usec, $sec) = explode(' ', microtime());   //microtime() 返回：毫秒 时间戳 0.63559400 1469065900
     return ((float)$usec + (float)$sec);
