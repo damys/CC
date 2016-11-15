@@ -47,3 +47,18 @@ CC/	框架目录
 
 ├── .htaccess
 
+## 测试数据库
+    CREATE TABLE `test` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `name` varchar(32) NOT NULL,
+      `age` int(11) NOT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+    
+    
+    INSERT INTO `test` VALUES ('1', '王四', '26');
+    INSERT INTO `test` VALUES ('2', '王五', '27');
+    INSERT INTO `test` VALUES ('3', '王六', '28');
+    INSERT INTO `test` VALUES ('4', '王七', '29');
+    INSERT INTO `test` VALUES ('5', '王八', '30');
+
