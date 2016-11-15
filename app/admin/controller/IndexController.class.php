@@ -4,6 +4,9 @@
 class IndexController extends BaseController
 {
     public function IndexAction(){
+        $model = ModelFactory::M('IndexModel');
+        msg($model->getRow());
+
         msg('this is admin controller');
         $this->display('index\index.html');
 
