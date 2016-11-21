@@ -62,3 +62,72 @@ CC/	框架目录
     INSERT INTO `test` VALUES ('4', '王七', '29');
     INSERT INTO `test` VALUES ('5', '王八', '30');
 
+
+## 数据参数绑定
+
+###根据传入的字段，实现参数绑定， 用于insert 语句
+   
+
+    /**
+     * 根据传入的字段，实现参数绑定， 用于insert 语句
+     * @param $param  array
+     * @return array
+     *
+     * 在sql 语句的拼接。如：table(:name,:age) values (name,age). 调用： $kv = $this->kv($param);
+     *
+        public function addManager($param){
+            $kv = $this->kv($param);
+            $sql = "insert into $this->_table({$kv['k']}) values ({$kv['v']})";
+
+            return $this->_dao->exec($sql, $kv['data']);
+        }
+     *
+     */
+    function ii($param){
+        $k = '';   // name
+        $v = '';   // :name
+
+        foreach($param as $key => $value){
+            $k .= "$key,";
+            $v .= ":$key,";
+            $data[":$key"] = $value;  // 对数据进行拼接。如：array(':name' => 'jack')
+        }
+        // 去掉最后一个符号','
+        $k = rtrim($k,',');
+        $v = rtrim($v,',');
+
+        return array('k'=>$k, 'v'=>$v, 'data'=>$data);
+    }
+
+
+### 根据传入的字段，实现参数绑定， 用于update 语句
+
+
+    /**
+     * 根据传入的字段，实现参数绑定， 用于update 语句
+     * @param $param
+     * @return array
+     *
+     * 在sql 语句的拼接。如：table set(:name=name, :age=age) 调用：
+     *
+        public function updateManagerById($param, $manager_id){
+            $uu = $this->uu($param);
+            $sql = "update $this->_table set {$uu['kv']} where manager_id = :manager_id";
+            $uu['data']['manager_id'] = $manager_id;
+
+            return $this->_dao->exec($sql, $uu['data']);
+        }
+     *
+     */
+    function uu($param){
+
+        $kv = '';
+        foreach($param as $key => $value){
+            $kv .="$key=:$key,";       // name = :name
+            $data[":$key"] = $value;   // 对数据进行拼接。如：array(':name' => 'jack')
+        }
+        // 去掉最后一个符号','
+        $kv = rtrim($kv,',');
+
+        return array( 'kv'=>$kv, 'data'=>$data);
+    }
