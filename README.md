@@ -76,10 +76,10 @@ CC/	框架目录
      * 在sql 语句的拼接。如：table(:name,:age) values (name,age). 调用： $kv = $this->kv($param);
      *
         public function addManager($param){
-            $kv = $this->kv($param);
-            $sql = "insert into $this->_table({$kv['k']}) values ({$kv['v']})";
+            $ii = $this->ii($param);
+            $sql = "insert into $this->_table({$ii['k']}) values ({$ii['v']})";
 
-            return $this->_dao->exec($sql, $kv['data']);
+            return $this->_dao->exec($sql, $ii['data']);
         }
      *
      */
