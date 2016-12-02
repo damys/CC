@@ -12,10 +12,14 @@ class IndexController extends BaseController
         $this->assign('title', $title);
         $this->assign('data', $data);
 
+        // 测试公共类：
+        $model = ModelFactory::M('ArticleModel');
+
         $this->display('index/index.html');
     }
 
     public function demoAction(){
+
         $this->display('index/demo.html');
     }
 
