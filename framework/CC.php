@@ -53,14 +53,16 @@ class CC
                 require_once FRAMEWORK . $class . '.class.php';
 
             }else if(substr($file, -5) == "Model"){
+
                 // 加载：共公model 是在根目录下
                 if(file_exists(ROOT .'model'. DS . $class . '.class.php')){
                     require ROOT .'model'. DS . $class . '.class.php';
-                }
 
-                // 加载：前后台model
-                if(file_exists(MODEL_PATH . $class . '.class.php')){
-                    require MODEL_PATH . $class . '.class.php';
+                } else {
+                    // 加载：前后台model
+                    if(file_exists(MODEL_PATH . $class . '.class.php')){
+                        require MODEL_PATH . $class . '.class.php';
+                    }
                 }
 
             }else if(substr($file, -10) == "Controller"){
