@@ -1,7 +1,11 @@
 <?php
 
-//加载配置文件
+// 方式1：加载配置文件
 $CONF = include ROOT . 'config\config.php';
+
+// 方式2：使用全局变量加载配置文件
+// $GLOBALS['CONF'] = include ROOT . 'config\config.php';
+// $GLOBALS['CONF']['DEFAULT_CHARSET']
 
 //开启session
 if($CONF['SESSION_START']) session_start();
