@@ -104,7 +104,7 @@ CC/	框架目录
 
 
     /**
-     * 根据传入的字段，实现参数绑定， 用于update 语句
+     * 根据传入的字段，实现参数绑定， 用于update 语句。操作时需要卸载id,增加参数id
      * @param $param
      * @return array
      *
