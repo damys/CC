@@ -111,6 +111,7 @@ CC/	框架目录
      * 在sql 语句的拼接。如：table set(:name=name, :age=age) 调用：
      *
         public function updateManagerById($param, $manager_id){
+
             $uu = $this->uu($param);
             $sql = "update $this->_table set {$uu['kv']} where manager_id = :manager_id";
             $uu['data']['manager_id'] = $manager_id;
