@@ -14,7 +14,7 @@ define('FRAMEWORK', ROOT . 'framework' . DS);     //框架目录
 /* ========================================================================
  *  URL 静态资源js, css, img 路径
  * ======================================================================== */
-define('SITE_URL', 'http://www.abc.com/');           //网址域名,注意修改
+define('SITE_URL', '/');                                   //网址域名,注意修改。 可以是要目录
 define('JS_URL', SITE_URL . 'assets/js/');                 //前台静态资源路径,默认不带平台名
 define('CSS_URL', SITE_URL. 'assets/css/');
 define('IMG_URL', SITE_URL. 'assets/img/');

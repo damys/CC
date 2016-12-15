@@ -146,3 +146,8 @@ CC/	框架目录
             require MODEL_PATH . $class . '.class.php';
         }
     }
+
+
+## .html加载公共块
+
+    <?php include VIEW_PATH."tpl/footer.html"; ?>
