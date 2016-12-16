@@ -43,10 +43,14 @@ class BaseController
         if(isset($_SERVER['HTTP_REFERER'])){
             //如果访问地址不是本地地址，就跳转相关错误页面
             if(strpos($_SERVER['HTTP_REFERER'], SITE_URL) !== 0) {
-                !empty($error_url) ? header("Location:" . $error_url) : header("Location:?c=error");
+               // !empty($error_url) ? header("Location:" . $error_url) : header("Location:?c=error");
+
+                header("Location:" . $error_url) 
             }
         } else{
-            !empty($error_url) ? header("Location:" . $error_url) : header("Location:?c=error");
+            // !empty($error_url) ? header("Location:" . $error_url) : header("Location:?c=error");
+
+            header("Location:" . $error_url) 
         }
     }
 
