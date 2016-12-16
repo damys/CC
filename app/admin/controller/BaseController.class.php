@@ -39,14 +39,23 @@ class BaseController
      * 防盗链
      * @param string $error_url 可以指定错误跳转url
      */
-    public function referer($error_url = ''){
+    public function referer($url = ''){
+
         if(isset($_SERVER['HTTP_REFERER'])){
-            //如果访问地址不是本地地址，就跳转相关错误页面
-            if(strpos($_SERVER['HTTP_REFERER'], SITE_URL) !== 0) {
-                !empty($error_url) ? header("Location:" . $error_url) : header("Location:?c=error");
+
+            // 拼装Http
+            $http = substr($_SERVER['HTTP_REFERER'], 0, strrpos($_SERVER['HTTP_REFERER'], ':')) == 'https' ? 'https' : 'http';
+            $host = $http . '://' . $_SERVER['HTTP_HOST'];
+
+            // 根据拼装的http 地址，如果访问地址不是本地地址，就跳转相关code 页面
+            if(substr($_SERVER['HTTP_REFERER'], 0, strlen($host)) != $host){
+
+                !empty($url) ? header("Location:" . $url) : header("Location:/code/?c=4004");exit;
             }
-        } else{
-            !empty($error_url) ? header("Location:" . $error_url) : header("Location:?c=error");
+
+        } else {
+
+            !empty($url) ? header("Location:" . $url) : header("Location:/code/?c=4004");exit;
         }
     }
 
