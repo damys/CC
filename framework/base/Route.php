@@ -34,6 +34,11 @@ class Route
 
             // 3-3.处理参数:action 默认为：Index
             if (isset($path[1]) && $path[1]) {
+
+                // 伪静态：可以加.html
+//                if(strpos($path[1], '.')){
+//                    $path[1] = substr($path[1],0, strpos($path[1], '.'));
+//                }
                 $this->action = $path[1];
             } else {
                 $this->action = $GLOBALS['CONF']['DEF_ACTION'];
