@@ -26,8 +26,13 @@
 
 ## 配置文件
 ---
-    $CONF = include ROOT . 'config\config.php';   //加载配置文件
+    方式1：加载配置文件
+    $CONF = include ROOT . 'config\config.php';
     直接通过获取：$CONF['XXX']
+    
+    方式2：使用全局变量加载配置文件
+    $GLOBALS['CONF'] = include ROOT . 'config\config.php';
+    直接通过获取：$GLOBALS['CONF']['DEFAULT_CHARSET'];
 
 ## 目录结构
 ---
