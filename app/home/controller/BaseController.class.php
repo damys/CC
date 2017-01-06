@@ -45,12 +45,12 @@ class BaseController
             if(strpos($_SERVER['HTTP_REFERER'], SITE_URL) !== 0) {
                // !empty($error_url) ? header("Location:" . $error_url) : header("Location:?c=error");
 
-                header("Location:" . $error_url) 
+                // header("Location:" . $error_url)
             }
         } else{
             // !empty($error_url) ? header("Location:" . $error_url) : header("Location:?c=error");
 
-            header("Location:" . $error_url) 
+            // header("Location:" . $error_url)
         }
     }
 

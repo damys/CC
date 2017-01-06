@@ -1,21 +1,21 @@
 <?php
 
 // 方式1：加载配置文件
-$CONF = include ROOT . 'config\config.php';
+//$CONF = include ROOT . 'config\config.php';
 
 // 方式2：使用全局变量加载配置文件
-// $GLOBALS['CONF'] = include ROOT . 'config\config.php';
-// $GLOBALS['CONF']['DEFAULT_CHARSET']
+ $GLOBALS['CONF'] = include ROOT . 'config\config.php';
+// $GLOBALS['CONF']['DEFAULT_CHARSET'];
 
 //开启session
-if($CONF['SESSION_START']) session_start();
+if($GLOBALS['CONF']['SESSION_START']) session_start();
 
 //设置默认字符编码, 设置时区
-header('content-type:text/html; charset=' . $CONF['DEFAULT_CHARSET']);
-date_default_timezone_set($CONF['DEFAULT_TIMEZONE']);
+header('content-type:text/html; charset=' . $GLOBALS['CONF']['DEFAULT_CHARSET']);
+date_default_timezone_set($GLOBALS['CONF']['DEFAULT_TIMEZONE']);
 
 //打开php 的错误显示
-if($CONF['DEBUG']){
+if($GLOBALS['CONF']['DEBUG']){
     ini_set('display_error', 'On');
 }else {
     ini_set('display_error', 'Off');
