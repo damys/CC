@@ -20,10 +20,8 @@ class BaseModel
             'db_port'    => $CONF['DB_PORT'],
             'log_is'     => $CONF['LOG_IS'],
             'log_path'   => $CONF['LOG_PATH'],
-
             'db_name'    => $CONF['DB_NAME'],
             'db_host'    => $CONF['DB_HOST']
-
         );
 
         $this->_dao = DB_PDO::getInstance($confs);

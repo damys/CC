@@ -49,12 +49,10 @@ class BaseController
 
             // 根据拼装的http 地址，如果访问地址不是本地地址，就跳转相关code 页面
             if(substr($_SERVER['HTTP_REFERER'], 0, strlen($host)) != $host){
-
                 !empty($url) ? header("Location:" . $url) : header("Location:/code/?c=4004");exit;
             }
 
         } else {
-
             !empty($url) ? header("Location:" . $url) : header("Location:/code/?c=4004");exit;
         }
     }
