@@ -1,4 +1,0 @@
-2016-08-29 17:37:29 DB Connect Error! invalid data source name
-2016-08-29 18:00:27 执行INSERT 成功, 受影响的行数:1, SQL:INSERT INTO `user` SET `name`='tom',`age`='25'
-
-2016-10-09 14:05:04 DB Connect Error! SQLSTATE[HY000] [1049] Unknown database 'mcools_db'
