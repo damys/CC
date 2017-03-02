@@ -4,7 +4,7 @@
 //$CONF = include ROOT . 'config\config.php';
 
 // 方式2：使用全局变量加载配置文件
- $GLOBALS['CONF'] = include ROOT . 'config\config.php';
+$GLOBALS['CONF'] = include ROOT . 'config\config.php';
 
 //开启session
 if($GLOBALS['CONF']['SESSION_START']) session_start();
@@ -61,16 +61,7 @@ CC::run();
 
 
 
-
-
-
 // 可以直接获取配置文件中的设置值
 //include FRAMEWORK . 'base\Conf.php';
 //echo Conf::get('config', 'DB_DSN');
 //echo Conf::getAll('config')['DB_DSN'];
-
-
-
-
-
-
