@@ -2,9 +2,12 @@
 
 /* ========================================================================
  * 路由类
- * 主要功能,解析URL
+ * 主要功能：解析URL
  * ======================================================================== */
 
+/**
+ * Class Route
+ */
 class Route
 {
     public $controller;
@@ -14,8 +17,8 @@ class Route
      * 获取URL 参数部分
      * 返回对应控制器和方法
      */
-    public function __construct(){
-
+    public function __construct()
+    {
         $uri = $_SERVER['REQUEST_URI'];
 
         if (!empty($uri) && $uri != '/') {
@@ -34,11 +37,10 @@ class Route
 
             // 3-3.处理参数:action 默认为：Index
             if (isset($path[1]) && $path[1]) {
-
                 // 伪静态：可以加.html
-//                if(strpos($path[1], '.')){
-//                    $path[1] = substr($path[1],0, strpos($path[1], '.'));
-//                }
+                if(strpos($path[1], '.')){
+                    $path[1] = substr($path[1],0, strpos($path[1], '.'));
+                }
                 $this->action = $path[1];
             } else {
                 $this->action = $GLOBALS['CONF']['DEF_ACTION'];
@@ -63,7 +65,6 @@ class Route
                     $path[3] = substr($path[3],0, strpos($path[3], '.'));
                 }
             }
-
 
             /**
              * 二、卸掉控制器，方法。 对post, get 提交url 解析：/id/1/name/tom
@@ -92,8 +93,6 @@ class Route
             $this->controller = $GLOBALS['CONF']['DEF_CONTROLLER'];
             $this->action = $GLOBALS['CONF']['DEF_ACTION'];
         }
-
         // msg("实际调用：controller:" . $this->controller . ', ' . 'action:' . $this->action);
-
     }
 }
