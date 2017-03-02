@@ -1,14 +1,20 @@
 <?php
 
 /* ========================================================================
- * CC FRAMEWORK
+ * CC 框架类
+ * 主要功能：加载所需要的类
  * ======================================================================== */
+
+/**
+ * Class CC
+ */
 class CC
 {
     public static $classMap = array();
     public $assign = array();
 
-    static public function run(){
+    static public function run()
+    {
         $route = new Route();   //new 的类不存是会调用load 加载该类
 
         $controller = $route->controller;
@@ -25,27 +31,31 @@ class CC
             $ctrl = new $Controller();
             $ctrl->$Action();
         } else {
-            die('找不到控制器:' . $controller);
+            header("location:/code/?c=4001"); exit;
+            // die('找不到控制器:' . $controller);
         }
-
-        //msg($Controller);
     }
 
-    //加载类
-    static public function autoload($class){
-        //存放已经实例化的类, 如有已存在直接返回
+
+    /**
+     * 按需加载类
+     * @param $class
+     * @return bool
+     */
+    static public function autoload($class)
+    {
+        // 存放已经实例化的类, 如有已存在直接返回
         if (isset($classMap[$class])) {
             return true;
         } else {
-
-            //将反斜线转为正斜线： \index\index  ==> index\index  ==> index/index.html
+            // 将反斜线转为正斜线： \index\index  ==> index\index  ==> index/index.html
             $file = str_replace('\\', '/', $class);
 
-            //msg( '已加载文件：' . $file);
 
-            //预加载类
-            $base_class = array('DB_PDO', 'ModelFactory', 'Response', 'Cookie');
-            //自动加载类库
+            // 预加载类
+            $base_class = array('DB_PDO', 'ModelFactory', 'Response', 'Page', 'ImgUpload', 'Session');
+
+            // 自动加载类库
             if (in_array($class, $base_class)) {
                 if($class === 'DB_PDO' ){
                     $class = 'db/' . $class;
@@ -68,6 +78,9 @@ class CC
                     }
                 }
 
+
+                self::$classMap[$class] = $class;
+
             }else if(substr($file, -10) == "Controller"){
                 require CTRL_PATH . $class . '.class.php';
                 self::$classMap[$class] = $class;
@@ -75,8 +88,7 @@ class CC
             }else{
                 return false;
             }
-
-            msg( '已加载文件：' . $file);
+            // msg( '已加载文件：' . $file);
         }
     }
 }
