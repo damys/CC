@@ -39,5 +39,4 @@ return array(
     'SESSION_START'     => true,                 // 是否自动开户 SESSION
     'SESSION_ID'        => '',                   // SESSION ID
     'SESSION_PREFIX'    => ''                    // SESSION 前缀
-
 );
