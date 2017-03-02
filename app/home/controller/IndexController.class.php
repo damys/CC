@@ -17,10 +17,4 @@ class IndexController extends BaseController
 
         $this->display('index/index.html');
     }
-
-    public function demoAction(){
-
-        $this->display('index/demo.html');
-    }
-
 }

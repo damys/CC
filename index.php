@@ -1,4 +1,6 @@
 <?php
+
+/////////////// 测试用动行时间 ////////////////////
 function microtime_float(){
     list($usec, $sec) = explode(' ', microtime());   //microtime() 返回：毫秒 时间戳 0.63559400 1469065900
     return ((float)$usec + (float)$sec);
@@ -24,10 +26,11 @@ define('ADMIN_IMG_URL', SITE_URL. 'assets/admin/img/');
 define('IMG_UPLOAD', SITE_URL . 'upload/');                //文件上传路径
 
 
-
+// 初始化框架
 include FRAMEWORK . 'init.php';
 
 
+/////////////// 测试用动行时间 ////////////////////
 $d2 = microtime_float();
-msg("动行消耗时间：" . ($d2-$d1));
+msg("动行消耗时间（index.html）：" . ($d2-$d1));
 

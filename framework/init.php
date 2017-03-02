@@ -5,7 +5,6 @@
 
 // 方式2：使用全局变量加载配置文件
  $GLOBALS['CONF'] = include ROOT . 'config\config.php';
-// $GLOBALS['CONF']['DEFAULT_CHARSET'];
 
 //开启session
 if($GLOBALS['CONF']['SESSION_START']) session_start();
@@ -26,13 +25,8 @@ define('TIME', $_SERVER['REQUEST_TIME']);
 
 
 /* ========================================================================
- * URL 常量化设置 平台，模块
+ * URL 常量化设置平台，模块. 默认为前台，当传参为admin 则选择平台为后台
  * ======================================================================== */
-// 选择模块或平台，默认为前台，当传参为admin 则选择平台为后台
-//$p = !empty($_GET['p']) ? $_GET['p'] : 'home';
-//define("PLAT", $p);                                  //平台：传统方式
-
-//选择模块或平台，默认为前台，当传参为admin 则选择平台为后台
 if($_SERVER['HTTP_HOST'] == 'admin.framework.com'){
     $p = 'admin';
 } else {

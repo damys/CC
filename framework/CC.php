@@ -13,6 +13,9 @@ class CC
     public static $classMap = array();
     public $assign = array();
 
+    /**
+     * 运行预约加载类
+     */
     static public function run()
     {
         $route = new Route();   //new 的类不存是会调用load 加载该类
@@ -31,8 +34,7 @@ class CC
             $ctrl = new $Controller();
             $ctrl->$Action();
         } else {
-            header("location:/code/?c=4001"); exit;
-            // die('找不到控制器:' . $controller);
+            die('找不到控制器:' . $controller);
         }
     }
 
@@ -88,7 +90,7 @@ class CC
             }else{
                 return false;
             }
-            // msg( '已加载文件：' . $file);
+            msg( '已加载文件(CC.php)：' . $file);
         }
     }
 }
