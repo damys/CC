@@ -32,5 +32,5 @@ include FRAMEWORK . 'init.php';
 
 /////////////// 测试用动行时间 ////////////////////
 $d2 = microtime_float();
-msg("动行消耗时间（index.html）：" . ($d2-$d1));
+msg("动行消耗时间（index.php）：" . ($d2-$d1));
 
