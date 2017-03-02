@@ -8,9 +8,7 @@ class IndexController extends BaseController
         msg($model->getRow());
 
         $title = 'home title';
-        $data = 'home data';
         $this->assign('title', $title);
-        $this->assign('data', $data);
 
         // 测试公共类：
         $model = ModelFactory::M('ArticleModel');
