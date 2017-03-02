@@ -1,5 +1,13 @@
 <?php
 
+/* ========================================================================
+ * 配置类
+ * 主要功能：加载系统配置,如果之前已经加载过,那么就直接返回
+ * ======================================================================== */
+
+/**
+ * Class Conf
+ */
 class Conf
 {
     static public $conf = array();
@@ -10,7 +18,8 @@ class Conf
      * @param string $file 文件名
      * @return bool
      */
-    static public function get($file='conf', $name){
+    static public function get($file='conf', $name)
+    {
         if(isset(self::$conf[$file][$name])) {
             return self::$conf[$file][$name];
         }
@@ -31,7 +40,8 @@ class Conf
      * @param $file 文件名
      * @return mixed
      */
-    static public function getAll($file){
+    static public function getAll($file)
+    {
         if(isset(self::$conf[$file])) {
             return self::$conf[$file];
         }
