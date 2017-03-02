@@ -52,6 +52,8 @@ CC/	框架目录
 
 ├── .htaccess
 
+├── index.php
+
 ## 测试数据库
     CREATE TABLE `test` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
