@@ -38,21 +38,20 @@
 ---
 CC/	框架目录
 
-├── app
+├── app         应用代码
 
-├── assets
+├── assets      静态文件：images,css,js
 
-├── config
+├── config      程序配置或数据库配置
 
-├── framework
+├── framework   框架主代码
 
-├── runtime
+├── runtime     临时数据目录
 
-├── index.php
+├── index.php   入口文件
 
-├── .htaccess
+├── .htaccess   重定向
 
-├── index.php
 
 ## 测试数据库
     CREATE TABLE `test` (
