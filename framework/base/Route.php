@@ -19,7 +19,7 @@ class Route
      */
     public function __construct()
     {
-        $uri = $_SERVER['REQUEST_URI'];
+        $uri = strtolower($_SERVER['REQUEST_URI']);
 
         if (!empty($uri) && $uri != '/') {
             $path = explode('?',$uri);    // 丢掉?以及后面的参数
