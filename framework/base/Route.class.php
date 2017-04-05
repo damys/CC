@@ -32,12 +32,16 @@ class Route
 
             // 3-2.处理参数:controller
             if (isset($path[0]) && $path[0]){
+                // action伪静态：可以加.html
+                if(strpos($path[0], '.')){
+                    $path[0] = substr($path[0],0, strpos($path[0], '.'));
+                }
                 $this->controller = $path[0];
             }
 
             // 3-3.处理参数:action 默认为：Index
             if (isset($path[1]) && $path[1]) {
-                // 伪静态：可以加.html
+                // action伪静态：可以加.html
                 if(strpos($path[1], '.')){
                     $path[1] = substr($path[1],0, strpos($path[1], '.'));
                 }

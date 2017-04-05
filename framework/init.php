@@ -38,18 +38,15 @@ define("PLAT", $p);                                    //平台
 /* ========================================================================
  * URL 常量化设置 程序包路径
  * ======================================================================== */
-define("APP", ROOT . 'app' . DS);                      //程序包（前后台）的完整路径
-define("PLAT_PATH", APP . PLAT . DS);                  //后台完整路径
-define("CTRL_PATH", PLAT_PATH . 'controller' . DS);    //当前控制器所在完整路径
-define("MODEL_PATH", PLAT_PATH . 'model' . DS);        //当前模型所在完整路径
-define("VIEW_PATH", PLAT_PATH . 'view' . DS);          //当前视图所在完整路径
-
-
-
+define("APP", ROOT . 'app' . DS);                      // 程序包（前后台）的完整路径
+define("PLAT_PATH", APP . PLAT . DS);                  // 后台完整路径
+define("CTRL_PATH", PLAT_PATH . 'controller' . DS);    // 当前控制器所在完整路径
+define("MODEL_PATH", PLAT_PATH . 'model' . DS);        // 当前模型所在完整路径
+define("VIEW_PATH", PLAT_PATH . 'view' . DS);          // 当前视图所在完整路径
 
 
 /* ========================================================================
- * 加载公共函数库， 框架加载文件，用于引导框架启动
+ * 加载公共函数库， 路由，核心框架文件，用于引导框架启动
  * ======================================================================== */
 include FRAMEWORK . 'base\function.php';
 include FRAMEWORK . 'base\Route.class.php';
@@ -58,7 +55,6 @@ include FRAMEWORK . 'CC.php';             //核心库
 //当我们new 的类不存在的时候，就调用这个类， 并运行run 方法
 spl_autoload_register('CC::autoload');
 CC::run();
-
 
 
 // 可以直接获取配置文件中的设置值
