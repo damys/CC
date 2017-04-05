@@ -32,7 +32,7 @@ class Route
 
             // 3-2.处理参数:controller
             if (isset($path[0]) && $path[0]){
-                // action伪静态：可以加.html
+                // controller伪静态：可以加.html
                 if(strpos($path[0], '.')){
                     $path[0] = substr($path[0],0, strpos($path[0], '.'));
                 }
