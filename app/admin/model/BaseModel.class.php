@@ -2,7 +2,8 @@
 
 class BaseModel
 {
-    protected $_dao = null;   //用于存储数据库工具类的实例(对象)
+    protected $_dao       = null;   //用于存储数据库工具类的实例(对象)
+    protected $_db_prefix = null;   // 数据库表前缀
 
     public function __construct()
     {
@@ -11,6 +12,9 @@ class BaseModel
         }else{
             die('config file is not find!');
         }
+
+        // 数据库表前缀
+        $this->_db_prefix = $CONF['DB_PREFIX'];
 
         $confs = array(
             'dsn'        => $CONF['DB_DSN'],
