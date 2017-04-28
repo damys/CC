@@ -54,7 +54,7 @@ CC/	框架目录
 
 
 ## 测试数据库
-    CREATE TABLE `DB_test` (
+    CREATE TABLE `CC_test` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `name` varchar(32) NOT NULL,
       `age` int(11) NOT NULL,
@@ -62,11 +62,11 @@ CC/	框架目录
     ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
     
     
-    INSERT INTO `DB_test` VALUES ('1', '王四', '26');
-    INSERT INTO `DB_test` VALUES ('2', '王五', '27');
-    INSERT INTO `DB_test` VALUES ('3', '王六', '28');
-    INSERT INTO `DB_test` VALUES ('4', '王七', '29');
-    INSERT INTO `DB_test` VALUES ('5', '王八', '30');
+    INSERT INTO `CC_test` VALUES ('1', 'tom', '26');
+    INSERT INTO `CC_test` VALUES ('2', 'jack', '27');
+    INSERT INTO `CC_test` VALUES ('3', 'rose', '28');
+    INSERT INTO `CC_test` VALUES ('4', 'json', '29');
+    INSERT INTO `CC_test` VALUES ('5', 'damys', '30');
 
 
 ## 数据参数绑定
