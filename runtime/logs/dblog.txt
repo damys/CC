@@ -1,0 +1,5 @@
+2017-04-28 11:35:59 DB Connect Error! SQLSTATE[HY000] [1049] Unknown database 'cc'
+2017-04-28 11:36:07 DB Connect Error! SQLSTATE[HY000] [1049] Unknown database 'cc'
+2017-04-28 11:36:09 DB Connect Error! SQLSTATE[HY000] [1049] Unknown database 'cc'
+2017-04-28 11:36:23 DB Connect Error! SQLSTATE[HY000] [1049] Unknown database 'cc'
+2017-04-28 11:36:24 DB Connect Error! SQLSTATE[HY000] [1049] Unknown database 'cc'
