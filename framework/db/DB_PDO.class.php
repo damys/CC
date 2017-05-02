@@ -18,7 +18,6 @@ class DB_PDO
     private static $_instance = null;
     private $_transTimes      = 0;
     private $_pdo             = null;
-    private $_handle          = null;
     private $_stmt            = null;
 
     /**
@@ -38,11 +37,6 @@ class DB_PDO
         $this->log_is     = $confs['log_is'];
         $this->log_path   = $confs['log_path'];
 
-        //开启日志
-        if($this->log_is){
-            $handle = fopen($this->log_path . "dblog.txt", "a+");
-            $this->_handle = $handle;
-        }
 
         //连接数据库
         try{
@@ -61,10 +55,6 @@ class DB_PDO
      */
     public function __destruct()
     {
-        if($this->log_is){
-            fclose($this->_handle);
-        }
-
         self::free();
         self::close();
     }
@@ -429,9 +419,23 @@ class DB_PDO
      */
     protected function write_log($msg = '')
     {
-        if($this->log_is){
+        if($this->log_is)
+        {
+            // 拼装日志目录
+            $log_path   = $this->log_path . 'db/' . date('Y', time()) .'/'. date('m', time()) . '/';
+
+            // 创建多级目录
+            if(!file_exists($log_path)) mkdir($log_path, 0777, true);
+
+            // 获取文件手柄
+            $handle = fopen($log_path . '/' . date('Ymd', time()) ."_dblog.txt", "a+");
+
+            // 追加内容到文件
             $text = date("Y-m-d H:i:s") . " " . $msg . "\r\n";
-            fwrite( $this->_handle, $text);
+            fwrite( $handle, $text);
+
+            // 关闭文件手柄
+            fclose($handle);
         }
     }
 
