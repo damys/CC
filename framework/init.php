@@ -15,9 +15,9 @@ date_default_timezone_set($GLOBALS['CONF']['DEFAULT_TIMEZONE']);
 
 //打开php 的错误显示
 if($GLOBALS['CONF']['DEBUG']){
-    ini_set('display_error', 'On');
+    ini_set('display_errors', 'On');
 }else {
-    ini_set('display_error', 'Off');
+    ini_set('display_errors', 'Off');
 }
 
 //服务器时间
