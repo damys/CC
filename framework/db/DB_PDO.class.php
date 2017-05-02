@@ -416,6 +416,7 @@ class DB_PDO
     /**
      * 写入日志信息到文件
      * @param string $msg  日志信息
+     * 注：目录结构：年/月/年月日_db_log.txt
      */
     protected function write_log($msg = '')
     {
@@ -428,7 +429,7 @@ class DB_PDO
             if(!file_exists($log_path)) mkdir($log_path, 0777, true);
 
             // 获取文件手柄
-            $handle = fopen($log_path . '/' . date('Ymd', time()) ."_dblog.txt", "a+");
+            $handle = fopen($log_path . '/' . date('Ymd', time()) ."_db_log.txt", "a+");
 
             // 追加内容到文件
             $text = date("Y-m-d H:i:s") . " " . $msg . "\r\n";
