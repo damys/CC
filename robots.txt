@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /app/admin/
+Disallow: /framework/
+Disallow: /model/
+Disallow: /config/
+Disallow: /runtime/
