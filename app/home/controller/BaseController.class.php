@@ -15,7 +15,7 @@ class BaseController
         $route = ModelFactory::M('Route');
 
         // 控制器，方法改为小写
-        $route->action = strtolower($route->controller);
+        $route->controller = strtolower($route->controller);
         $route->action = strtolower($route->action);
 
         $this->assign('route', $route);
