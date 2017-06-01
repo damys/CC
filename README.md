@@ -157,3 +157,14 @@ CC/	框架目录
 ## .html加载公共块
 
     <?php include VIEW_PATH."tpl/footer.html"; ?>
+
+
+## BaseController 给前台设置并分配路由（控制器，方法）到模板统一使用
+
+    $route = ModelFactory::M('Route');
+
+    // 控制器，方法改为小写
+    $route->action = strtolower($route->controller);
+    $route->action = strtolower($route->action);
+
+    $this->assign('route', $route);
