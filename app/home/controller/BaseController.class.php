@@ -9,6 +9,18 @@
 class BaseController
 {
 
+    public function __construct()
+    {
+        // 获取路由，并分配到模板统一使用
+        $route = ModelFactory::M('Route');
+
+        // 控制器，方法改为小写
+        $route->action = strtolower($route->controller);
+        $route->action = strtolower($route->action);
+
+        $this->assign('route', $route);
+    }
+
     /* ========================================================================
      * 功能2：分配值，加载并显示页面，跳转， 防盗链，空处理
      * ======================================================================== */
