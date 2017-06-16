@@ -13,11 +13,6 @@ class BaseController
     {
         // 获取路由，并分配到模板统一使用
         $route = ModelFactory::M('Route');
-
-        // 控制器，方法改为小写
-        $route->controller = strtolower($route->controller);
-        $route->action = strtolower($route->action);
-
         $this->assign('route', $route);
     }
 
