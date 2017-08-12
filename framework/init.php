@@ -48,8 +48,8 @@ define("VIEW_PATH", PLAT_PATH . 'view' . DS);          // 当前视图所在完�
 /* ========================================================================
  * 加载公共函数库， 路由，核心框架文件，用于引导框架启动
  * ======================================================================== */
-include FRAMEWORK . 'base\function.php';
-include FRAMEWORK . 'base\Route.class.php';
+include FRAMEWORK . 'base'.DS.'function.php';
+include FRAMEWORK . 'base' . DS . 'Route.class.php';
 include FRAMEWORK . 'CC.php';             //核心库
 
 //当我们new 的类不存在的时候，就调用这个类， 并运行run 方法
