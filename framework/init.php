@@ -7,7 +7,9 @@
 $GLOBALS['CONF'] = include ROOT . 'config\config.php';
 
 //开启session
-if($GLOBALS['CONF']['SESSION_START']) session_start();
+if($GLOBALS['CONF']['SESSION_START']) {
+    session_start();
+}
 
 //设置默认字符编码, 设置时区
 header('content-type:text/html; charset=' . $GLOBALS['CONF']['DEFAULT_CHARSET']);
