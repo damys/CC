@@ -34,7 +34,9 @@ class CC
             $ctrl = new $Controller();
             $ctrl->$Action();
         } else {
-            die('找不到控制器:' . $controller);
+            // header("location:/code/?c=4001"); exit;
+            include (VIEW_PATH .'code/index.html'); exit;
+            // die('找不到控制器:' . $controller);
         }
     }
 
@@ -53,16 +55,15 @@ class CC
             // 将反斜线转为正斜线： \index\index  ==> index\index  ==> index/index.html
             $file = str_replace('\\', '/', $class);
 
-
             // 预加载类
             $base_class = array('DB_PDO', 'ModelFactory', 'Response', 'Page', 'ImgUpload', 'Session');
 
             // 自动加载类库
             if (in_array($class, $base_class)) {
                 if($class === 'DB_PDO' ){
-                    $class = 'db/' . $class;
+                    $class = 'db' . DS . $class;
                 }else{
-                    $class = 'base/' . $class;
+                    $class = 'base' . DS . $class;
                 }
 
                 require_once FRAMEWORK . $class . '.class.php';
@@ -80,7 +81,6 @@ class CC
                     }
                 }
 
-
                 self::$classMap[$class] = $class;
 
             }else if(substr($file, -10) == "Controller"){
@@ -90,7 +90,7 @@ class CC
             }else{
                 return false;
             }
-            msg( '已加载文件(CC.php)：' . $file);
+//            msg( '已加载文件(CC.php)：' . $file);
         }
     }
 }
