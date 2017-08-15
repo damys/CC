@@ -4,7 +4,7 @@
 //$CONF = include ROOT . 'config\config.php';
 
 // 方式2：使用全局变量加载配置文件
-$GLOBALS['CONF'] = include ROOT . 'config\config.php';
+$GLOBALS['CONF'] = include ROOT . 'config' . DS . 'config.php';
 
 //开启session
 if($GLOBALS['CONF']['SESSION_START']) {

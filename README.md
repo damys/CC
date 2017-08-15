@@ -164,3 +164,7 @@ CC/	框架目录
     $route = ModelFactory::M('Route');
 
     $this->assign('route', $route);
+	
+	// 使用：
+	$route->controller;
+	$route->action;

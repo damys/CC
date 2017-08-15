@@ -53,10 +53,10 @@ class Route
              * 注意：短名最好不要与控制器重名
              */
             // 短域名设置
-            if(isset($GLOBALS['CONF']['Route.class'][$this->controller])){
+            if(isset($GLOBALS['CONF']['ROUTE'][$this->controller])){
 
-                $this->action = $GLOBALS['CONF']['Route.class'][$this->controller][1];
-                $this->controller = ucfirst($GLOBALS['CONF']['Route.class'][$this->controller][0]);
+                $this->action = $GLOBALS['CONF']['ROUTE'][$this->controller][1];
+                $this->controller = ucfirst($GLOBALS['CONF']['ROUTE'][$this->controller][0]);
 
                 // 短域名设置的路由数组首位缺少一位，因为短域名缺少一位
                 array_unshift($path, 0);
