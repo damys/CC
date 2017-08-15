@@ -1,4 +1,6 @@
-# CC FRAMEWORK FOR PHP
+# CC Web Programming Framework For PHP
+
+V: PHP Framework 1.1.x
 
 ---
 ## php文件名说明 ：
