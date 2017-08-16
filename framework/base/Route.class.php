@@ -62,7 +62,7 @@ class Route
                 array_unshift($path, 0);
 
                 // 伪静态：卸载掉除扩展名
-                if(strpos($path[3], '.')){
+                if(isset($path[3]) && strpos($path[3], '.')){
                     $path[3] = substr($path[3],0, strpos($path[3], '.'));
                 }
             }
