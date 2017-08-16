@@ -72,7 +72,7 @@ CC/	框架目录
 
 
 ## 数据参数绑定
-
+---
 ### 根据传入的字段，实现参数绑定， 用于insert 语句
    
 
@@ -110,7 +110,6 @@ CC/	框架目录
 
 ### 根据传入的字段，实现参数绑定， 用于update 语句
 
-
     /**
      * 根据传入的字段，实现参数绑定， 用于update 语句。操作时需要卸载id,增加参数id
      * @param $param
@@ -142,6 +141,8 @@ CC/	框架目录
     }
 
 
+## 模型，控制器，方法
+---
 ## 增加公共Model
 
     // 加载：共公model 是在根目录下
@@ -164,9 +165,9 @@ CC/	框架目录
 ## BaseController 给前台设置并分配路由（控制器，方法）到模板统一使用
 
     $route = ModelFactory::M('Route');
-
     $this->assign('route', $route);
 	
+
 	// 使用：
 	$route->controller;
 	$route->action;

@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0e46bfe-46c1-40b0-9d4e-f1380880388a" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/base/Route.class.php" afterPath="$PROJECT_DIR$/framework/base/Route.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/init.php" afterPath="$PROJECT_DIR$/framework/init.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="cc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -152,8 +148,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="300" />
-    <option name="y" value="144" />
+    <option name="x" value="232" />
+    <option name="y" value="115" />
     <option name="width" value="1460" />
     <option name="height" value="934" />
   </component>
@@ -416,15 +412,15 @@
       <workItem from="1502508394815" duration="2888000" />
       <workItem from="1502513865423" duration="16000" />
       <workItem from="1502513992407" duration="283000" />
-      <workItem from="1502789128263" duration="354000" />
+      <workItem from="1502789128263" duration="833000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5520000" />
+    <option name="totallyTimeSpent" value="5999000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="300" y="144" width="1460" height="934" extended-state="0" />
+    <frame x="232" y="115" width="1460" height="934" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2907143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
