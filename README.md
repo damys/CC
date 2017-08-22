@@ -1,4 +1,4 @@
-# CC Web Programming Framework For PHP
+# CCPHP Web Programming Framework For PHP
 
 V: PHP Framework 1.1.x
 
