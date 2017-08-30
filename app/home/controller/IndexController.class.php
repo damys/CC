@@ -10,6 +10,6 @@ class IndexController extends BaseController
         $title = 'home title';
 
         $this->assign('title', $title);
-        $this->display('index/index.html');
+        $this->display('/index/index.html');
     }
 }

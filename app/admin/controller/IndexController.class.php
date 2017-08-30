@@ -14,6 +14,6 @@ class IndexController extends BaseController
         $title = 'admin title';
         $this->assign('title', $title);
 
-        $this->display('index\index.html');
+        $this->display('/index/index.html');
     }
 }
