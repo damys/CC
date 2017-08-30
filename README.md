@@ -171,3 +171,11 @@ CC/	框架目录
 	// 使用：
 	$route->controller;
 	$route->action;
+	
+	
+## 问题
+### 1. linux 严格区分大小写，平台路由(正反斜杠)
+<pre>
+ModelFactory:M('AbcModel')  
+$this->display('/register/index.html')
+</pre>
