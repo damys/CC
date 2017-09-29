@@ -211,3 +211,18 @@ function formatTime($date) {
         }
     }
 }
+
+
+/**
+ * 判断是否为润年。 一般的,能被4,400整除, 不能被100整除的年份是闰年
+ * @param $year
+ * @return bool|string
+*/
+function isLeapyear($year) 
+{
+    if ((($year % 4) == 0) && (($year % 100) != 0) || (($year % 400) == 0)) {
+        return (true);
+    } else {
+        return (false);
+    }
+}
