@@ -332,6 +332,22 @@ function _trim(&$value)
 }
 
 
+/**
+ * 截取字符串，后加点。 注：一个中文占3个字符
+ * @param $str
+ * @param $len
+ * @param string $ellipsis
+ * @return string
+ */
+ function sub_str($str, $len, $ellipsis = '...')
+ {
+     if( mb_strlen($str, 'utf-8') <= $len) {
+         return $str;
+     } else {
+         return mb_substr($str, 0, $len, 'utf-8') . $ellipsis;
+     }
+ }
+ 
 
 /**
  * 字符串截取，支持中文和其他编码
