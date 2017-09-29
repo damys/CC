@@ -264,3 +264,27 @@ function isDevice()
     }
     return 0;
 }
+
+
+/**
+ * 非法字符过滤函数, 非法替换为空
+ * @param $string
+ * @return bool|string
+*/
+function has_unsafeword($string) 
+{
+    $regex = "/\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\.|\/|\;|\'|\`|\=|\\\|\|/";
+    return preg_replace($regex,"", $string);   
+}
+
+
+
+/**
+ * 去空格，以及字符添加斜杠
+ * @param $string
+ * @return bool|string
+*/
+function _trim(&$value) 
+{
+    return addslashes(trim($value));
+}
