@@ -226,3 +226,24 @@ function isLeapyear($year)
         return (false);
     }
 }
+
+
+
+/**
+ * 判断当前设备，1：安卓；2：IOS；3：微信；0：未知
+ * @param $ord
+ * @return bool|string
+*/
+function isDevice()
+{
+    if($_SERVER['HTTP_USER_AGENT']){
+        $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+        if(strpos($agent, 'micromessenger') !== false)
+            return 3;
+        elseif(strpos($agent, 'iphone')||strpos($agent, 'ipad'))
+            return 2;
+        else
+            return 1;
+    }
+    return 0;
+}
