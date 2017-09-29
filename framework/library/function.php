@@ -267,6 +267,25 @@ function isDevice()
 
 
 /**
+ * 获取当前访问的设备类型
+ * @return integer 1：其他  2：iOS  3：Android
+ */
+ function get_device_type(){
+    //全部变成小写字母
+    $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+    $type = 1;
+    //分别进行判断
+    if(strpos($agent, 'iphone')!==false || strpos($agent, 'ipad')!==false){
+        $type = 2;
+    }
+    if(strpos($agent, 'android')!==false){
+        $type = 3;
+    }
+    return $type;
+}
+
+
+/**
  * 非法字符过滤函数, 非法替换为空
  * @param $string
  * @return bool|string
