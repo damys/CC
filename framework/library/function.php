@@ -228,6 +228,23 @@ function isLeapyear($year)
 }
 
 
+/**
+ * 生成订单15位
+ * @param $ord
+ * @return int
+*/
+function autoMakeOrder($ord = 0) 
+{
+    // 自动生成订单号  传入参数为0 或者1   0为本地  1为线上订单
+    if ($ord === 0) {
+        $str = '00' . time() . mt_rand(100000, 999999); //00 本地订单
+    } else {
+        $str = '11' . time() . mt_rand(100000, 999999);  //11 线上订单
+    }
+    return $str;
+}
+
+
 
 /**
  * 判断当前设备，1：安卓；2：IOS；3：微信；0：未知
