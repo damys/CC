@@ -121,6 +121,17 @@ function getdaysInmonth($month, $year)
 
 
 
+ /**
+ * 获取毫秒数
+*/
+ function microtime_float()
+ {
+     list($usec, $sec) = explode(" ", microtime());   //microtime() 返回：毫秒 时间戳 0.63559400 1469065900
+
+     return ((float)$usec + (float)$sec);
+ }
+
+
 /**
  * 传入时间戳,计算距离现在的时间
  * @param  number $time 时间戳
@@ -320,6 +331,16 @@ function has_unsafeword($string)
 }
 
 
+/**
+* 访止注入
+* @param $sql_str
+* @return int 返回1 合法， 0不合法
+*/
+function injectCheck($sql_str)
+{
+    return  preg_match('/select|insert|and|or|update|delete|\'|\/\*|\*|\.\.\/|\.\/|union|into|load_file|outfile/i', $sql_str);
+}
+
 
 /**
  * 去空格，以及字符添加斜杠
@@ -347,7 +368,7 @@ function _trim(&$value)
          return mb_substr($str, 0, $len, 'utf-8') . $ellipsis;
      }
  }
- 
+
 
 /**
  * 字符串截取，支持中文和其他编码
@@ -374,4 +395,50 @@ function _trim(&$value)
     }
     $omit=mb_strlen($str) >=$length ? '...' : '';
     return $suffix ? $slice.$omit : $slice;
+}
+
+
+//获取客户端IP
+function getIp()
+{
+    if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown"))
+        $ip = getenv("HTTP_CLIENT_IP");
+    else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown"))
+        $ip = getenv("HTTP_X_FORWARDED_FOR");
+    else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
+        $ip = getenv("REMOTE_ADDR");
+    else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
+        $ip = $_SERVER['REMOTE_ADDR'];
+    else
+        $ip = "unknown";
+    return($ip);
+}
+
+
+/**
+* 根据新浪接口，获取当前所在的城市
+* @param $queryIP
+* @return string
+*/
+function getIPLoc_sina($queryIP)
+{
+    $url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=' . $queryIP;
+    $ch = curl_init($url);                                                    // 初始化url地址
+    curl_setopt($ch, CURLOPT_ENCODING, 'utf8');            // 设置一个cURL传输选项
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   // 获取数据返回
+    $location = curl_exec($ch);                                          // 执行一个cURL会话
+    $location = json_decode($location);                            // 对 JSON 格式的字符串进行编码
+    curl_close($ch);                                                           // 关闭一个cURL会话
+    $loc = "";
+
+    if ($location === FALSE) return "地址不正确";
+
+    if (empty($location->desc)) {
+        $loc = $location->city;
+    } else {
+        $loc = $location->desc;
+    }
+
+    return $loc;
 }
