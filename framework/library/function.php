@@ -124,7 +124,7 @@ function getdaysInmonth($month, $year)
  /**
  * 获取毫秒数
 */
- function microtime_float()
+ function microtime()
  {
      list($usec, $sec) = explode(" ", microtime());   //microtime() 返回：毫秒 时间戳 0.63559400 1469065900
 
