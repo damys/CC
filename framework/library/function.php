@@ -74,22 +74,6 @@ function random($type='', $length=32)
 }
 
 
-/**
- * 生成订单15位
- * @param $ord
- * @return int
-*/
-function autoMakeOrder($ord = 0) 
-{
-    // 自动生成订单号  传入参数为0 或者1   0为本地  1为线上订单
-    if ($ord === 0) {
-        $str = '00' . time() . mt_rand(100000, 999999); //00 本地订单
-    } else {
-        $str = '11' . time() . mt_rand(100000, 999999);  //11 线上订单
-    }
-    return $str;
-}
-
 
 /**
  * 生成不重复的随机数
@@ -110,6 +94,23 @@ function autoMakeOrder($ord = 0)
     sort($data);
 
     return $data;
+}
+
+
+/**
+ * 生成订单15位
+ * @param $ord
+ * @return int
+*/
+function autoMakeOrder($ord = 0) 
+{
+    // 自动生成订单号  传入参数为0 或者1   0为本地  1为线上订单
+    if ($ord === 0) {
+        $str = '00' . time() . mt_rand(100000, 999999); //00 本地订单
+    } else {
+        $str = '11' . time() . mt_rand(100000, 999999);  //11 线上订单
+    }
+    return $str;
 }
 
 
