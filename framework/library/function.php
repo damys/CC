@@ -155,7 +155,8 @@ function getdaysInmonth($month, $year)
  * @param  number $time 时间戳
  * @return string     返回多少以前
  */
- function formatTime($time) {
+ function formatTime($time) 
+ {
     $time = (int) substr($time, 0, 10);
     $int = time() - $time;
     $str = '';
@@ -215,7 +216,8 @@ function getdaysInmonth($month, $year)
  * @param $date  2017-6-15
  * @return string
 */
-function formatTime($date) {
+function formatTime($date) 
+{
     $timer = strtotime($date);
     $diff = $_SERVER['REQUEST_TIME'] - $timer;
     $day = floor($diff / 86400);
