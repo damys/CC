@@ -434,7 +434,8 @@ function isDevice()
  * 获取当前访问的设备类型
  * @return integer 1：其他  2：iOS  3：Android
  */
- function get_device_type(){
+ function get_device_type()
+ {
     //全部变成小写字母
     $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
     $type = 1;
