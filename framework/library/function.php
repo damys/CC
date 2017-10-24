@@ -446,7 +446,7 @@ function injectCheck($sql_str)
  * xss过滤函数
  *
  * @param $string
- * @return string
+ * @return string   将出的字符有空格替换
  */
 function remove_xss($string) { 
     $string = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S', '', $string);
