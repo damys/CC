@@ -1,5 +1,7 @@
 <?php
 
+/*-------------------------- 随机数 -----------------------------*/
+
 /**
  * 按类型生成随机字符串
  * @param $type 类型，默认为混合，upper(只生成大写字母)，lower(只生成小写字母)，number(只生成数字)
@@ -113,6 +115,8 @@ function autoMakeOrder($ord = 0)
     return $str;
 }
 
+
+/*-------------------------- 时间 -----------------------------*/
 
 /**
  * 计算该月有几天
@@ -329,6 +333,8 @@ function isLeapyear($year)
 }
 
 
+/*-------------------------- 设备 -----------------------------*/
+
 //获取客户端IP
 function getIp()
 {
@@ -417,7 +423,7 @@ function isDevice()
 }
 
 
-
+/*-------------------------- 安全检测 -----------------------------*/
 
 /**
  * 非法字符过滤函数, 非法替换为空
@@ -484,4 +490,27 @@ function remove_xss($string) {
 function _trim(&$value) 
 {
     return addslashes(trim($value));
+}
+
+
+/*-------------------------- Other -----------------------------*/
+
+/**
+* 转换字节数为其他单位
+*
+*
+* @param    string    $filesize    字节大小
+* @return    string    返回大小
+*/
+function sizecount($filesize) {
+    if ($filesize >= 1073741824) {
+        $filesize = round($filesize / 1073741824 * 100) / 100 .' GB';
+    } elseif ($filesize >= 1048576) {
+        $filesize = round($filesize / 1048576 * 100) / 100 .' MB';
+    } elseif($filesize >= 1024) {
+        $filesize = round($filesize / 1024 * 100) / 100 . ' KB';
+    } else {
+        $filesize = $filesize.' Bytes';
+    }
+    return $filesize;
 }
