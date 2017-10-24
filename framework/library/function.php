@@ -283,39 +283,6 @@ function isLeapyear($year)
 
 
 
-/**
- * 非法字符过滤函数, 非法替换为空
- * @param $string
- * @return bool|string
-*/
-function has_unsafeword($string) 
-{
-    $regex = "/\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\.|\/|\;|\'|\`|\=|\\\|\|/";
-    return preg_replace($regex,"", $string);   
-}
-
-
-/**
-* 访止注入
-* @param $sql_str
-* @return int 返回1 合法， 0不合法
-*/
-function injectCheck($sql_str)
-{
-    return  preg_match('/select|insert|and|or|update|delete|\'|\/\*|\*|\.\.\/|\.\/|union|into|load_file|outfile/i', $sql_str);
-}
-
-
-/**
- * 去空格，以及字符添加斜杠
- * @param $string
- * @return bool|string
-*/
-function _trim(&$value) 
-{
-    return addslashes(trim($value));
-}
-
 
 /**
  * 截取字符串，后加点。 注：一个中文占3个字符
@@ -447,4 +414,74 @@ function isDevice()
         $type = 3;
     }
     return $type;
+}
+
+
+
+
+/**
+ * 非法字符过滤函数, 非法替换为空
+ * @param $string
+ * @return bool|string
+*/
+function has_unsafeword($string) 
+{
+    $regex = "/\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\.|\/|\;|\'|\`|\=|\\\|\|/";
+    return preg_replace($regex,"", $string);   
+}
+
+
+/**
+* 访止注入
+* @param $sql_str
+* @return int 返回1 合法， 0不合法
+*/
+function injectCheck($sql_str)
+{
+    return  preg_match('/select|insert|and|or|update|delete|\'|\/\*|\*|\.\.\/|\.\/|union|into|load_file|outfile/i', $sql_str);
+}
+
+
+/**
+ * xss过滤函数
+ *
+ * @param $string
+ * @return string
+ */
+function remove_xss($string) { 
+    $string = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S', '', $string);
+ 
+    $parm1 = Array('javascript', 'vbscript', 'expression', 'applet', 'meta', 'xml', 'blink', 'link', 'script', 'embed', 'object', 'iframe', 'frame', 'frameset', 'ilayer', 'layer', 'bgsound', 'title', 'base');
+ 
+    $parm2 = Array('onabort', 'onactivate', 'onafterprint', 'onafterupdate', 'onbeforeactivate', 'onbeforecopy', 'onbeforecut', 'onbeforedeactivate', 'onbeforeeditfocus', 'onbeforepaste', 'onbeforeprint', 'onbeforeunload', 'onbeforeupdate', 'onblur', 'onbounce', 'oncellchange', 'onchange', 'onclick', 'oncontextmenu', 'oncontrolselect', 'oncopy', 'oncut', 'ondataavailable', 'ondatasetchanged', 'ondatasetcomplete', 'ondblclick', 'ondeactivate', 'ondrag', 'ondragend', 'ondragenter', 'ondragleave', 'ondragover', 'ondragstart', 'ondrop', 'onerror', 'onerrorupdate', 'onfilterchange', 'onfinish', 'onfocus', 'onfocusin', 'onfocusout', 'onhelp', 'onkeydown', 'onkeypress', 'onkeyup', 'onlayoutcomplete', 'onload', 'onlosecapture', 'onmousedown', 'onmouseenter', 'onmouseleave', 'onmousemove', 'onmouseout', 'onmouseover', 'onmouseup', 'onmousewheel', 'onmove', 'onmoveend', 'onmovestart', 'onpaste', 'onpropertychange', 'onreadystatechange', 'onreset', 'onresize', 'onresizeend', 'onresizestart', 'onrowenter', 'onrowexit', 'onrowsdelete', 'onrowsinserted', 'onscroll', 'onselect', 'onselectionchange', 'onselectstart', 'onstart', 'onstop', 'onsubmit', 'onunload');
+ 
+    $parm = array_merge($parm1, $parm2); 
+ 
+    for ($i = 0; $i < sizeof($parm); $i++) { 
+        $pattern = '/'; 
+        for ($j = 0; $j < strlen($parm[$i]); $j++) { 
+            if ($j > 0) { 
+                $pattern .= '('; 
+                $pattern .= '(&#[x|X]0([9][a][b]);?)?'; 
+                $pattern .= '|(&#0([9][10][13]);?)?'; 
+                $pattern .= ')?'; 
+            }
+            $pattern .= $parm[$i][$j]; 
+        }
+        $pattern .= '/i';
+        $string = preg_replace($pattern, ' ', $string); 
+    }
+    return $string;
+}
+
+
+
+/**
+ * 去空格，以及字符添加斜杠
+ * @param $string
+ * @return bool|string
+*/
+function _trim(&$value) 
+{
+    return addslashes(trim($value));
 }
