@@ -10,8 +10,9 @@
  */
 class Route
 {
-    public $controller;
-    public $action;
+    public $controller        = null;
+    public $action            = null;
+    private static $_instance = null;
 
     /**
      * 获取URL 参数部分
@@ -93,6 +94,19 @@ class Route
             $this->controller = ucfirst($GLOBALS['CONF']['DEF_CONTROLLER']);
             $this->action = strtolower($GLOBALS['CONF']['DEF_ACTION']);
         }
-        //msg("实际调用：controller:" . $this->controller . ', ' . 'action:' . $this->action);
+//        msg("实际调用：controller:" . $this->controller . ', ' . 'action:' . $this->action);
+    }
+
+    /**
+     * 单例模式
+     * 判断：如果没有实例化，就先实例化
+     */
+    public static function getInstance()
+    {
+        if(!(self::$_instance instanceof self)){
+            self::$_instance = new self();
+        }
+
+        return self::$_instance;
     }
 }
