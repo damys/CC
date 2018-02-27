@@ -43,7 +43,7 @@ function random($type='', $length = 32)
 * @return string
 * @return string
 */
-function random($type='', $length=32)
+function random2($type='', $length=32)
 {
    if($type === 'touble'){
        $chars=array(
@@ -84,7 +84,7 @@ function random($type='', $length=32)
  * @param  int $length 需要生成的随机数个数
  * @return array       生成的随机数
  */
- function random($start=1, $end=10, $length=4)
+ function random3($start=1, $end=10, $length=4)
  {
     $connt=0;
     $temp=array();
@@ -187,7 +187,7 @@ function getdaysInmonth($month, $year)
  * @param $time
  * @return bool|string
  */
- function formatTime($time)
+ function formatTime2($time)
  {
      $rtime = date("Y-m-d H:i",$time);
      $time = time() - $time;
@@ -220,7 +220,7 @@ function getdaysInmonth($month, $year)
  * @param $date  2017-6-15
  * @return string
 */
-function formatTime($date) 
+function formatTime1($date)
 {
     $timer = strtotime($date);
     $diff = $_SERVER['REQUEST_TIME'] - $timer;
