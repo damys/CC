@@ -1,0 +1,1 @@
+2018-02-01 16:53:42 DB Connect Error! SQLSTATE[HY000] [1049] Unknown database 'cc_cc_test2'
