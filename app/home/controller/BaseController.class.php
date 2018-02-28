@@ -12,8 +12,10 @@ class BaseController
     public function __construct()
     {
         // 获取路由，并分配到模板统一使用
-        $route = ModelFactory::M('Route');
-        $this->assign('route', $route);
+//        $route = ModelFactory::M('Route');
+            Route::getInstance();
+
+        $this->assign('route', Route::getInstance());
     }
 
     /* ========================================================================
