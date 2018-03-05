@@ -29,7 +29,6 @@ define('IMG_UPLOAD', SITE_URL . 'upload/');                //文件上传路径
 // 初始化框架
 include FRAMEWORK . 'init.php';
 
-
 /////////////// 测试用动行时间 ////////////////////
 $d2 = microtime_float();
 msg("动行消耗时间（index.php）：" . ($d2-$d1));
