@@ -18,7 +18,8 @@ class CC
      */
     static public function run()
     {
-        $route = new Route();   //new 的类不存是会调用load 加载该类
+//        $route = new Route();         //new 的类不存是会调用load 加载该类
+        $route = Route::getInstance();  // 20180201 更新为单例模式
 
         $controller = $route->controller;
         $action = $route->action;
@@ -56,7 +57,7 @@ class CC
             $file = str_replace('\\', '/', $class);
 
             // 预加载类
-            $base_class = array('DB_PDO', 'ModelFactory', 'Response', 'Page', 'ImgUpload', 'Session');
+            $base_class = array('DB_PDO', 'ModelFactory', 'Response');
 
             // 自动加载类库
             if (in_array($class, $base_class)) {
@@ -70,14 +71,16 @@ class CC
 
             }else if(substr($file, -5) == "Model"){
 
-                // 加载：共公model 是在根目录下
-                if(file_exists(ROOT .'model'. DS . $class . '.class.php')){
-                    require ROOT .'model'. DS . $class . '.class.php';
+                // model 加载顺序：先模块下的model - 后共公的model
+
+                // 加载：模块下的model
+                if(file_exists(MODEL_PATH . $class . '.class.php')){
+                    require MODEL_PATH . $class . '.class.php';
 
                 } else {
-                    // 加载：前后台model
-                    if(file_exists(MODEL_PATH . $class . '.class.php')){
-                        require MODEL_PATH . $class . '.class.php';
+                    // 加载：共公model 是在根目录下
+                    if(file_exists(APP .'_model'. DS . $class . '.class.php')){
+                        require APP .'_model'. DS . $class . '.class.php';
                     }
                 }
 
@@ -90,7 +93,7 @@ class CC
             }else{
                 return false;
             }
-//            msg( '已加载文件(CC.php)：' . $file);
+//            msg( '---框架已加载文件：' . $file);
         }
     }
 }
