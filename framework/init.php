@@ -39,11 +39,7 @@ if($GLOBALS['CONF']['log_is']){
  * 设置平台，模块. 默认为前台，当传参为admin 则选择平台为后台，静态资源路径
  * ======================================================================== */
 if($_SERVER['HTTP_HOST'] == 'admin.ccphp.com'){
-<<<<<<< 93e9f8ca365ac4cb9e8ba688f55e31fa4d973476
-    $p = 'admin';
-=======
     $module = 'admin';
->>>>>>> 'init'
 } else {
     $module = 'home';
 }
