@@ -65,7 +65,7 @@ include PLAT_PATH . 'functions.php';                   // 加载模块函数文�
 include FRAMEWORK . 'base' . DS . 'Route.php';
 include FRAMEWORK . 'cc.php';                          // 核心库
 
-// new 的类时候，就会调用这个类方法， 并运行run 方法
+// new 类时候，就会调用这个类方法， 并运行run 方法
 spl_autoload_register('cc::autoload');
 cc::run();
 
