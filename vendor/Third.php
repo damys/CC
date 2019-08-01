@@ -1,11 +1,11 @@
 <?php
 
-namespace extend;
+namespace vendor;
 
 class Third
 {
     public static function getMsg()
     {
-        msg( 'from extend third...');
+        msg( 'from vendor third...');
     }
 }
