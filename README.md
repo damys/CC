@@ -38,6 +38,7 @@ V: PHP Framework 1.1.x
 
 ## 目录结构
 ---
+```
 CC/	框架目录
 
 ├── app         应用代码
@@ -53,7 +54,7 @@ CC/	框架目录
 ├── index.php   入口文件
 
 ├── .htaccess   重定向
-
+```
 
 ## 测试数据库
     CREATE TABLE `CC_test` (
