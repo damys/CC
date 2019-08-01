@@ -1,1 +1,0 @@
-2019-04-18 16:30:06 执行INSERT 成功，受影响的行数(1)，返回ID (378) SQL：insert into cc_test(name, age) VALUES (:name,:age) 参数：{":name":"tom",":age":28}

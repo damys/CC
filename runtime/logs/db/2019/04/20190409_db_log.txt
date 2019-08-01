@@ -1,1 +1,0 @@
-2019-04-09 10:03:03 执行INSERT成功，受影响的行数：1, SQL:insert into cc_test(name, age) VALUES (:name,:age)
