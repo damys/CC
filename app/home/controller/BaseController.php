@@ -12,13 +12,10 @@ class BaseController
 
     public function __construct()
     {
-<<<<<<< 93e9f8ca365ac4cb9e8ba688f55e31fa4d973476:app/home/controller/BaseController.class.php
         // 获取路由，并分配到模板统一使用
-//        $route = ModelFactory::M('Route');
-            Route::getInstance();
+        // $route = ModelFactory::M('Route');
+        // Route::getInstance();
 
-        $this->assign('route', Route::getInstance());
-=======
         $this->assign('route', Route::getInstance());
     }
 
@@ -37,7 +34,6 @@ class BaseController
         }
 
         cc::notFound(4002);
->>>>>>> 'init':app/home/controller/BaseController.php
     }
 
 

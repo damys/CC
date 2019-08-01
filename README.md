@@ -49,3 +49,15 @@
 │    └─index.php          入口文件
 └─runtime                  运行目录/临时文件
 ```
+
+## session
+### db session
+```
+使用前，请创建数据库表。下面是在MySQL中创建cc_session表的示例
+CREATE TABLE `cc_session` (
+    `session_id` varchar(255) binary NOT NULL default '',
+    `session_expires` int(10) unsigned NOT NULL default '0',
+    `session_data` text,
+    PRIMARY KEY  (`session_id`)
+) ENGINE=MyISAM;
+```
